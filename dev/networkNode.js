@@ -3,6 +3,7 @@ const app = express();
 const Blockchain = require('./blockchain.js');
 const bodyParser = require ('body-parser');
 const uuid = require ('uuid');
+const port = process.argv[2];
 
 const nodeAddress = uuid().split('-').join('');
 
@@ -35,11 +36,16 @@ app.get('/mine', function(req, res){
         block: newBlock
     });
 });
+app.post('/register-and-broadcast-node', function(req, res){
+    const newNodeUrl = req.body.newNodeUrl;
+});
+app.post('register-node', function(req, res){
+    
+});
 
 
 
 
-
-app.listen(8080, function(){
-    console.log('Server listening on port: 8080')
+app.listen(port, function(){
+    console.log(`Server listening on port: ${port}`);
 });
