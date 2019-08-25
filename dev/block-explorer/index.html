@@ -150,7 +150,7 @@
 			$scope.fetchAddressData = function(address) {
 				$http.get(`/address/${address}`)
 				.then(response => {
-					$scope.addressData = response.data.addressData;
+					$scope.addressData = response.data;
 					if (!$scope.addressData.addressTransactions.length) $scope
 						.addressData = null;
 					$scope.block = null;

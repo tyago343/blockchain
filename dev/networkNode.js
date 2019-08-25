@@ -236,6 +236,7 @@ app.get('/block-explorer', function(req, res){
     res.sendFile('./block-explorer/index.html', { root: __dirname});
 })
 
+
 app.listen(port, function(){
     console.log(`Server listening on port: ${port}`);
 });
