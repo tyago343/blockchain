@@ -226,9 +226,15 @@ app.get('/transaction/:transactionId', function(req, res){
 
 
 app.get('/address/:address', function(req, res){
-
+    const address = req.params.address;
+    const addressData = bitcoin.getAddressData(address);
+    res.json(addressData);
 });
 
+
+app.get('/block-explorer', function(req, res){
+    res.sendFile('./block-explorer/index.html', { root: __dirname});
+})
 
 app.listen(port, function(){
     console.log(`Server listening on port: ${port}`);
